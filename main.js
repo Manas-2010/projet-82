@@ -1,31 +1,17 @@
- mouseEvent ="empty";
-
- canvas = document.getElementById("myCanvas");
+mouseEvent ="empty"; 
+canvas = document.getElementById("myCanvas"); 
 ctx = canvas.getContext("2d");
-   ctx.beginPath();
-  ctx.strokeStyle = "red";
-  ctx.lineWidth = 2;
-  ctx.arc(200 , 200 , 40, 0, 2*Math.PI);
-  ctx.stroke();
-
- color = "red";
-
- canvas.addEventListener("mouseDown", my_mouseDown);
- function my_mouseDown(e){
-    mouseEvent ="mouseDown";
- }
-
- canvas.addEventListener("mouseMove", my_mouseMove);
- function my_mouseMove(e){
-        current_position_of_X = e.clientX - canvas.offsetLeft;
-        current_position_of_Y = e.clientY - canvas.offsetTop;
-        if (mouseEvent == "mouseDown"){
-            console.log("current X and Y position =");
-            console.log("X = " + current_position_of_X + "Y = " + current_position_of_Y);
-            ctx.beginPath();
-            ctx.strokeStyle = color;
-            ctx.lineWidth = document.getElementById("Width_of_the_line").value;
-            ctx.arc(current_position_of_X , current_position_of_Y , document.getElementById("radius"), 0, 2*Math.PI);
-            ctx.stroke();
-        }
-    }
+ color = "red"; 
+width_of_line = 2; radius = 40; 
+canvas.addEventListener("mousedown", my_mousedown); 
+function my_mousedown(e){ mouseEvent ="mousedown"; }
+ canvas.addEventListener("mousemove", my_mousemove); 
+ function my_mousemove(e){ current_position_of_x = e.clientX - canvas.offsetLeft;
+     current_position_of_y = e.clientY - canvas.offsetTop;
+      if (mouseEvent == "mousedown")
+      { console.log("current X and Y position ="); 
+      console.log("X = " + current_position_of_x + "Y = " + current_position_of_y);
+       ctx.beginPath();
+        ctx.strokeStyle = color;
+         ctx.lineWidth = width_of_line; 
+ctx.arc(current_position_of_x , current_position_of_y , radius, 0, 2*Math.PI); ctx.stroke(); } }
